@@ -9,15 +9,20 @@ app.use(cors());
 
 const dogs = [];
 
-app.get('/dog/random', async (req, res) => {
-  try {
-    const { status, message } = (await axios.get('https://dog.ceo/api/breeds/image/random')).data;
-    dogs.push(message);
-    res.json({});
-    // res.json(message);
-  } catch(e) {
-    console.error(e);
-  } 
+app.get('/dog/random', async (req, appRes) => {
+  axios.get('https://dog.ceo/api/breeds/image/random')
+    .then(res => {
+      const { data } = res;
+
+      const { status, message } = data;
+
+      dogs.push(message);
+
+      appRes.json(message);
+    })
+    .catch(e => {
+      console.log(e);
+    });
 });
 
 app.get('/dog/:idx', (req, res) => {
