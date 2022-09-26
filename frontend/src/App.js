@@ -7,15 +7,6 @@ import Tile from './component/tile/Tile';
 function App() {
   const [dogIndex, setDogIndex] = useState(0);
   const [dogCount, setDogCount] = useState(0);
-  // const [image, setImage] = useState("");
-
-  // const updateImage = async () => {
-  //   const res = await fetch(`http://localhost:3001/dog/${dogIndex}`);
-  //   console.log(res);
-  //   const image = await res.json();
-  //   console.log(image);
-  //   setImage(image);
-  // }
 
   const prevDog = async () => {
     if (dogIndex <= 0) return;
