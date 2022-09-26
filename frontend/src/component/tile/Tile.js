@@ -3,24 +3,19 @@ import { useEffect, useState } from 'react';
 
 
 function Tile(props) {
-
+  const { dogIndex } = props;
   const [image, setImage] = useState('');
 
   useEffect(() => {
     const getImage = async () => {
-      const res = await fetch(`http://localhost:3001/dog/${dogIndex}`);
+      const res = await fetch(`http://localhost:3001/dog/${dogIndex}`); //fetch from backend
+      const dogImage = await res.json(); //parse json to get the image url
 
-      console.log(res);
-
-      const dogImage = await res.json();
-
-      setImage(dogImage);
+      setImage(dogImage); //set image to image url
     }
-
-    getImage();
+    getImage(); //getImage on render/rerender
   });
 
-  const { dogIndex } = props;
   
   return (
     <div className="tile">
