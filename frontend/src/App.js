@@ -1,8 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 import Button from './component/button/Button';
-import Tile from './component/tile/Tile';
 
 function App() {
   const [dogIndex, setDogIndex] = useState(0);
