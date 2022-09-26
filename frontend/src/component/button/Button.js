@@ -1,12 +1,10 @@
 import './Button.css';
 
 function Button(props) {
-  const { children, onClick } = props;
+  // Initialize props.children and props.onClick into variables
 
   return (
-    <button className="button" onClick={onClick}>
-      {children}
-    </button>
+    // What should this return? Hint: Use the HTML button element, and think about what the button text and onClick function should be.
   );
 }
 

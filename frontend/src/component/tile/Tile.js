@@ -3,28 +3,22 @@ import { useEffect, useState } from 'react';
 
 
 function Tile(props) {
-
-  const [image, setImage] = useState('');
+  const { dogIndex } = props;
+  // Insert a React UseState hook for the image URL
+  /* YOUR CODE HERE */
 
   useEffect(() => {
     const getImage = async () => {
       const res = await fetch(`http://localhost:3001/dog/${dogIndex}`);
-
-      console.log(res);
-
       const dogImage = await res.json();
-
-      setImage(dogImage);
+      // Set the image variable you made from UseState to dogImage
     }
-
     getImage();
   });
-
-  const { dogIndex } = props;
   
   return (
     <div className="tile">
-      <img src={image}/>
+      <img src={/* YOUR CODE HERE */}/>
     </div>
   );
 }

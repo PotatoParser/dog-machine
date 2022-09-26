@@ -6,7 +6,8 @@ import Tile from './component/tile/Tile';
 
 function App() {
   const [dogIndex, setDogIndex] = useState(0);
-  const [dogCount, setDogCount] = useState(0);
+  // Initialize dogCount and setDogCount with useState here
+  // YOUR CODE HERE
 
   const prevDog = async () => {
     if (dogIndex <= 0) return;
@@ -17,14 +18,16 @@ function App() {
     if (dogIndex === dogCount) {
       await fetch('http://localhost:3001/dog/random')
     }
-    setDogIndex(dogIndex + 1);
+    // Add 1 to dogIndex here
+    // YOUR CODE HERE
     setDogCount(dogCount + 1);
   };
 
   return (
     <div className="app-wrapper">
       <div className="app">
-        <Tile dogIndex={dogIndex}></Tile>
+        {/* Insert the Tile component here, passing in the dogIndex state */}
+        {/* YOUR CODE HERE */}
         <h1>DOG MACHINE 3000</h1>
         <div className="button-group">
           <Button onClick={prevDog}>

@@ -12,16 +12,17 @@ const dogs = [];
 app.get('/dog/random', async (req, appRes) => {
   axios.get('https://dog.ceo/api/breeds/image/random')
     .then(res => {
-      const { data } = res;
-
-      const { status, message } = data;
-
-      dogs.push(message);
-
-      appRes.json(message);
+      // res is a json that looks like this:
+      // {
+      //   data: {
+      //     status: SOMESTATUS,
+      //     message: DOG IMAGE URL (IMPORTANT)
+      //   }
+      // }
+      // How do you retrieve the dog image url, add it to the dogs array (to "save" it), and send the url as a response?
     })
     .catch(e => {
-      console.log(e);
+      // Console log any errors
     });
 });
 
@@ -31,7 +32,7 @@ app.get('/dog/:idx', (req, res) => {
 });
 
 app.get('/dog', (req, res) => {
-  res.json(dogs);
+  // Return the dogs array as a response
 });
 
 app.listen(PORT, () => console.log(`LISTENING ON PORT: ${PORT}`));
