@@ -5,8 +5,8 @@ import Button from './component/button/Button';
 import Tile from './component/tile/Tile';
 
 function App() {
-  const [dogIndex, setDogIndex] = useState(-1);
-  const [dogCount, setDogCount] = useState(0);
+  const [dogIndex, setDogIndex] = useState(0);
+  const [dogCount, setDogCount] = useState(1);
 
   const prevDog = async () => {
     if (dogIndex <= 0) return;
@@ -34,7 +34,7 @@ function App() {
             Next
           </Button>
         </div>
-        <p>Dog Number: {dogIndex + 1}</p>
+        <p>Dog Number: {dogIndex}</p>
       </div>
     </div>
   );
