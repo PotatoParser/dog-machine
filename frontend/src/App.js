@@ -5,7 +5,7 @@ import Button from './component/button/Button';
 import Tile from './component/tile/Tile';
 
 function App() {
-  const [dogIndex, setDogIndex] = useState(0);
+  const [dogIndex, setDogIndex] = useState(-1);
   const [dogCount, setDogCount] = useState(0);
 
   const prevDog = async () => {
@@ -14,8 +14,8 @@ function App() {
   };
 
   const nextDog = async () => {
-    if (dogIndex === dogCount) {
-      await fetch('http://localhost:3001/dog/random')
+    if (dogIndex === dogCount - 1) {
+      await fetch('http://localhost:3001/dog/random');
     }
     setDogIndex(dogIndex + 1);
     setDogCount(dogCount + 1);
@@ -34,7 +34,7 @@ function App() {
             Next
           </Button>
         </div>
-        <p>Dog Number: {dogIndex}</p>
+        <p>Dog Number: {dogIndex + 1}</p>
       </div>
     </div>
   );

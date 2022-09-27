@@ -27,11 +27,17 @@ app.get('/dog/random', async (req, appRes) => {
 
 app.get('/dog/:idx', (req, res) => {
   const { idx } = req.params;
-  res.json(dogs[Number(idx)]);
+  if (dogs[Number(idx)] === undefined) {
+    res.json("");
+  } else {
+    res.json(dogs[Number(idx)]);
+  }
 });
 
 app.get('/dog', (req, res) => {
   res.json(dogs);
 });
+
+
 
 app.listen(PORT, () => console.log(`LISTENING ON PORT: ${PORT}`));
