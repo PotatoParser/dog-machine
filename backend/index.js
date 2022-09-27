@@ -6,6 +6,7 @@ const PORT = 3001;
 const app = express();
 
 app.use(cors());
+
 const defaultDogImage = "https://spectrum.ieee.org/media-library/image.jpg?id=25584273"
 const dogs = [defaultDogImage];
 

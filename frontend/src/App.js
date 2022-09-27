@@ -4,7 +4,8 @@ import Button from './component/button/Button';
 
 function App() {
   const [dogIndex, setDogIndex] = useState(0);
-  // Initialize dogCount and setDogCount with useState here
+  // Initialize dogCount and setDogCount with useState here.
+  // Hint: There is already a default dog image pregenerated, so what would the starting dogCount be?
   // YOUR CODE HERE
 
   const prevDog = async () => {
