@@ -13,8 +13,8 @@ function App() {
   };
 
   const nextDog = async () => {
-    if (dogIndex === dogCount) {
-      await fetch('http://localhost:3001/dog/random')
+    if (dogIndex === dogCount - 1) {
+      await fetch('http://localhost:3001/dog/random');
     }
     // Add 1 to dogIndex here
     // YOUR CODE HERE

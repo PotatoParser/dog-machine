@@ -6,8 +6,8 @@ const PORT = 3001;
 const app = express();
 
 app.use(cors());
-
-const dogs = [];
+const defaultDogImage = "https://spectrum.ieee.org/media-library/image.jpg?id=25584273"
+const dogs = [defaultDogImage];
 
 app.get('/dog/random', async (req, appRes) => {
   axios.get('https://dog.ceo/api/breeds/image/random')
@@ -28,11 +28,17 @@ app.get('/dog/random', async (req, appRes) => {
 
 app.get('/dog/:idx', (req, res) => {
   const { idx } = req.params;
-  res.json(dogs[Number(idx)]);
+  if (dogs[Number(idx)] === undefined) {
+    res.json(defaultDogImage);
+  } else {
+    res.json(dogs[Number(idx)]);
+  }
 });
 
 app.get('/dog', (req, res) => {
   // Return the dogs array as a response
 });
+
+
 
 app.listen(PORT, () => console.log(`LISTENING ON PORT: ${PORT}`));
